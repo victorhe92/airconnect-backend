@@ -64,4 +64,14 @@ export class AeropuertosService {
 
     throw new NotFoundException('Id no encontrado');
   }
+
+  findByCode(codigo: string) {
+    const aeropuerto = this.aeropuertos.find(
+      (aeropuerto) => aeropuerto.codigo == codigo,
+    );
+
+    if (aeropuerto) return aeropuerto;
+
+    throw new NotFoundException('Codigo no encontrado');
+  }
 }
